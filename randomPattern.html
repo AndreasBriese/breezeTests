@@ -1,0 +1,37 @@
+<html>
+<head>
+	<title>Random Pattern</title>
+	<style type="text/css" media="screen">
+		body{
+			background-color: #000;
+			text-align: center;
+		}
+		div{
+height: 100%;
+		}
+		img{
+			padding-top: 0%;
+			background-color: #fff;
+		}
+	</style>
+</head>
+<body>
+<div>
+	<img width="2000" height="1000">	
+</div>
+</body>
+<script>
+	var img = document.getElementsByTagName("img")[0];
+	var nimg = new Image();
+	var cnt = 0;
+	function refresh(){
+		nimg.removeEventListener("load", refresh, false);
+		if (nimg.height*nimg.width == 2000*1000){
+			img.src = nimg.src;
+			// img.style.backgroundImage = "url(./719403800.png?"+cnt+++")";
+		}
+		// nimg.src = "./719403800.png?"+cnt++;
+	}
+	window.setInterval("nimg.addEventListener('load', refresh, false); nimg.src = './randPad.png?'+cnt++;",1000/30)
+</script>
+</html>
