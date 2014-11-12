@@ -1,20 +1,12 @@
 package main
 
 import (
-	// "bufio"
-	"bytes"
 	"flag"
 	"fmt"
 	"image"
 	"image/color"
-	// "image/draw"
-	// "image/jpeg"
 	"image/png"
-	// "io/ioutil"
-	// "io"
-	// "math"
 	"os"
-	// "os/exec"
 	"time"
 )
 
@@ -31,9 +23,9 @@ func main() {
 		for {
 			outfname := "./tmp.png"
 
-			// randBytes, err := ioutil.ReadFile(fname)
 			f, err := os.Open(fname)
 			if err != nil {
+				fmt.Printf("%v -> Error: %v (if error == 'too many open files': use longer sequence (min: 10 rep with 1000000))\n", fname, err)
 				panic(1)
 			}
 			defer f.Close()
@@ -51,7 +43,7 @@ func main() {
 				breite := 2 * dim
 				hoehe := dim // (len(randBytes) >> 2) / breite
 
-				fmt.Println(breite, hoehe, breite*hoehe, len(randBytes), len(randBytes)>>2)
+				// fmt.Println(breite, hoehe, breite*hoehe, len(randBytes), len(randBytes)>>2)
 
 				dst := image.NewNRGBA(image.Rect(0, 0, breite, hoehe))
 
@@ -60,8 +52,9 @@ func main() {
 				if err != nil {
 					break
 				}
+
 				os.Rename(outfname, "randPad.png")
-				fmt.Println(offset, bytes.Compare(oldBytes, randBytes))
+				// fmt.Println(offset, bytes.Compare(oldBytes, randBytes))
 				copy(oldBytes, randBytes)
 
 				offset += int64(4 * 2 * dim * dim)

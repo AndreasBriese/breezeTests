@@ -574,15 +574,18 @@ func main() {
 	// 	}
 	// }
 
-	if outputFile != "" {
-		if err := ioutil.WriteFile(fmt.Sprintf("%v_%v.bin", module2test, rand.Int31()), outBin, 0666); err != nil {
-			fmt.Println("NO SUCCESS")
-			panic(0)
-		}
-	}
 	fmt.Println("lmap:", time.Since(st).Nanoseconds()/int64(testLenInBytes*rep)) // 500))
 	fmt.Println("tests:", rep, "length:", testLenInBytes)
 	fmt.Println("repeats:", NUM_repeats, "\nstateDbl:", NUM_stateDBL, "  baskets:", bskCompLst/float64(2*rep))
+
+	if outputFile != "" {
+		nm := rand.Int31()
+		if err := ioutil.WriteFile(fmt.Sprintf("%v_%v.bin", module2test, nm), outBin, 0666); err != nil {
+			fmt.Println("NO SUCCESS")
+			panic(0)
+		}
+		fmt.Printf("output to %v_%v.bin (%v sequences with length %v Bytes)\n", module2test, nm, rep, testLenInBytes)
+	}
 
 	// in, err := ioutil.ReadFile("./418047969.bin")
 	// if err != nil {
