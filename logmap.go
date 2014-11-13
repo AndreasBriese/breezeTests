@@ -188,7 +188,7 @@ func main() {
 			return
 		case "128":
 			var lmap breeze.Breeze128
-			lmap.Init([]uint64{uint64(rand.Int63()), uint64(rand.Int63())})
+			lmap.Init(rand.Int63())
 			// lmap.Init(Hstring)
 
 			for i := 0; i < testLenInBytes; i++ {

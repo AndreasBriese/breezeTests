@@ -320,7 +320,7 @@ func main() {
 			// 	fmt.Print(rd, ",")
 			// }
 		}
-		fmt.Println("breeze64_32 rdint", float64(time.Since(st).Nanoseconds())/float64(n), "ns/op")
+		fmt.Println("breeze128 rdInt", float64(time.Since(st).Nanoseconds())/float64(n), "ns/op")
 
 		// st = time.Now()
 		// for i := 0; i < n; i++ {
