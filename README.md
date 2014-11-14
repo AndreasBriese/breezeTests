@@ -13,7 +13,6 @@ calls breeze.Breeze128/CS128/256/512, checks for innerState duplicates and pipes
 run '$ go run logmap.go salsa20.go -h ' to see further options
 
 
-
 **randomImager.go randomPattern.html randPad.png**
 
 runs over a file with outputBytes (*.bin) from logmap.go and converts 4 bytes into RGBA png (4th Byte -> Alpha).

@@ -14,8 +14,8 @@ import (
 	"time"
 	// "unsafe"
 
-	"./breeze"
-	// "github.com/AndreasBriese/breeze"
+	// "./breeze"
+	"github.com/AndreasBriese/breeze"
 )
 
 var mutex = &sync.Mutex{}
